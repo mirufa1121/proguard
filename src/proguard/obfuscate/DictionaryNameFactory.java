@@ -47,6 +47,8 @@ public class DictionaryNameFactory implements NameFactory
      * @param nameFactory the name factory from which names will be retrieved
      *                    if the list of read names has been exhausted.
      */
+     
+     /*MEthod Edit by Custom Proguard*/
     public DictionaryNameFactory(File        file,
                                  NameFactory nameFactory) throws IOException
     {
@@ -57,8 +59,9 @@ public class DictionaryNameFactory implements NameFactory
 
         try
         {
-            StringBuffer buffer = new StringBuffer();
-
+           // StringBuffer buffer = new StringBuffer();
+           /*Allow Reading UTF8 File */
+            Reader reader = new InputStreamReader(new FileInputStream(file), "UTF-8");
             while (true)
             {
                 // Read the next character.
